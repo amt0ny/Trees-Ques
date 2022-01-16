@@ -1,0 +1,33 @@
+import java.util.*;
+class Tree {
+    static Scanner sc = new Scanner(System.in);
+    static class node{
+        node left, right;
+        int data;
+        node(int data){
+            this.data = data;
+        }
+    }
+    public static node createtree(){
+        node root = null;
+        System.out.println("Enter data");
+        int data = sc.nextInt();
+
+        if (data == -1){
+            return null;
+        }
+        root = new node(data);
+
+        System.out.println("Enter left of " + root.data);
+        root.left = createtree();
+
+        System.out.println("Enter right of " + root.data);
+        root.right = createtree();
+
+        return root;
+    }
+        public static void main(String[] args) {
+        createtree();
+    }
+
+}
