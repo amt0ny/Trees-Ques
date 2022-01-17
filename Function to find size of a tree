@@ -1,0 +1,17 @@
+    public static int findsize(node root){
+        int max = 0;
+        if (root == null){
+            System.out.println("Tree is empty");
+            return 0;
+        }
+        int lefthi = 0;
+        int righthi = 0;
+        if (root.left != null){
+            lefthi = findsize(root.left);
+        }
+        if (root.right != null){
+            righthi = findsize(root.right);
+        }
+        max = lefthi+righthi+1;
+        return max;
+    }
