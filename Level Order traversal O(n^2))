@@ -1,0 +1,65 @@
+class Main{
+    static Scanner sc = new Scanner(System.in);
+    static class node{
+        node left, right;
+        int data;
+        node(int data){
+            this.data = data;
+        }
+    }
+    public static node creattree(){
+        node root = null;
+        System.out.println("Enter data");
+        int data = sc.nextInt();
+
+        if (data == -1){
+            return null;
+        }
+        root = new node(data);
+
+        System.out.println("Enter left of " + root.data);
+        root.left = creattree();
+
+        System.out.println("Enter right of " + root.data);
+        root.right = creattree();
+
+        return root;
+    }
+    public static int findhight(node root){
+        int max = 0;
+        if (root == null){
+            System.out.println("Tree is empty");
+            return 0;
+        }
+        int lefthi = 0;
+        int righthi = 0;
+        if (root.left != null){
+            lefthi = findhight(root.left);
+        }
+        if (root.right != null){
+            righthi = findhight(root.right);
+        }
+        max = Math.max(lefthi,righthi)+1;
+        return max;
+    }
+    public static void levelorder(node root,int level){
+        if (root == null){
+            return;
+        }
+        if (level == 1){
+            System.out.print(root.data + " ");
+        }
+        else if (level > 1){
+          levelorder(root.left,level-1);
+          levelorder(root.right,level-1);
+        }
+    }
+    public static void main(String[] args) {
+        node root = creattree();
+        System.out.println(findhight(root));
+        System.out.println();
+        for (int i = 1;i<=findhight(root);i++){
+            levelorder(root,i);
+        }
+    }
+}
