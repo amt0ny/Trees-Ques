@@ -1,0 +1,20 @@
+    public static void Q_level_Order(node root){
+        Queue<node> que = new LinkedList<>();
+        que.add(root);
+        while (!que.isEmpty()){
+            node cur = que.poll();
+            System.out.print(cur.data+ " ");
+            if (cur.left != null){
+                que.add(cur.left);
+            }
+            if (cur.right != null){
+                que.add(cur.right);
+            }
+        }
+    }
+    public static void main(String[] args) {
+        node root = creattree();
+        Q_level_Order(root);
+    }
+    
+    // this code need pre build tree of function "creattree"  
