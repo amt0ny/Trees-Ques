@@ -1,0 +1,12 @@
+    public static node insertElement(node root, int element){
+        if (root == null){
+            return root = new node(element);
+        }
+        if (element < root.data){
+            root.left = insertElement(root.left,element);
+        }
+        else {
+            root.right = insertElement(root.right,element);
+        }
+        return root;
+    }
