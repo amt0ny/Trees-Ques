@@ -1,0 +1,22 @@
+    static Vector<Integer> vec = new Vector<>();
+    public static void inorder(node root){
+        if (root == null){
+            return;
+        }
+        inorder(root.left);
+        System.out.println(root.data);
+        vec.add(root.data);
+        inorder(root.right);
+    }
+    public static boolean checkBST(node root, Vector<Integer> vec){
+        boolean bool = false;
+        for (int i = 0;i<vec.size()-1;i++){
+            if (vec.get(i)<vec.get(i+1)){
+                bool = true;
+            }
+            else {
+               return bool = false;
+            }
+        }
+        return bool;
+    }
