@@ -1,0 +1,12 @@
+    public static boolean searchElement(node root, int element){
+        if (root == null){
+            return false;
+        }
+        if (root.data == element){
+            return true;
+        }
+        if (root.data > element){
+            return searchElement(root.left,element);
+        }
+            return searchElement(root.right,element);
+    }
